@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +19,6 @@ public class Utils {
     }
     public static void saveUser(String firstName,String lastName,String userName,String password) throws IOException, ParseException {
         String fileLocation = "./src/test/resources/users.json";
-
         JSONParser jsonParser =new JSONParser();
         JSONArray jsonArray= (JSONArray) jsonParser.parse(new FileReader(fileLocation));
 
@@ -35,8 +35,12 @@ public class Utils {
         writer.write(jsonArray.toJSONString());
         writer.flush();
         writer.close();
-
-
-
+    }
+    public static JSONObject getUser() throws IOException, ParseException {
+        String fileLocation = "./src/test/resources/users.json";
+        JSONParser jsonParser =new JSONParser();
+        JSONArray jsonArray= (JSONArray) jsonParser.parse(new FileReader(fileLocation));
+        JSONObject employeeObj = (JSONObject) jsonArray.get(jsonArray.size()-1);
+        return employeeObj;
     }
 }
