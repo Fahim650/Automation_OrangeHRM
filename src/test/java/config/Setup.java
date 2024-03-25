@@ -10,17 +10,19 @@ import java.time.Duration;
 
 public class Setup {
     public WebDriver driver;
+
     @BeforeTest
-    public void setup(){
-      driver = new ChromeDriver();
-      driver.manage().window().maximize();
-      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-      driver.get("https://opensource-demo.orangehrmlive.com/");
+    public void setup() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.get("https://opensource-demo.orangehrmlive.com/");
     }
+
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogout();
-       // driver.quit();
+        driver.quit();
     }
 }

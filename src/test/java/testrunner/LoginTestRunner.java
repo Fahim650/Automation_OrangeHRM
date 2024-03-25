@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import page.LoginPage;
 
 public class LoginTestRunner extends Setup {
-    @Test
+    @Test(priority = 1,description = "User can login with admin credentials")
     public void login(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogin("Admin","admin123");
