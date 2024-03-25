@@ -37,6 +37,6 @@ public class LoginPage {
     public void doLogout() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loggedIn.click();
-        loginPage.dropMenu.get(3).click();
+        loginPage.dropMenu.get(3).click();  // logout btn
     }
 }
