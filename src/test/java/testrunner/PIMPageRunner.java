@@ -1,8 +1,12 @@
+package testrunner;
 
+import config.Setup;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import page.LoginPage;
+import page.PIMPage;
 
-public class PIMPageRunner extends Setup{
+public class PIMPageRunner extends Setup {
     @BeforeTest
     public void login(){
         LoginPage loginPage = new LoginPage(driver);
